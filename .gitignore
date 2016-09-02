@@ -31,3 +31,8 @@
 # Debug files
 *.dSYM/
 *.su
+
+rc4_test
+rc4_example
+librc4.so
+librc4.a

@@ -17,22 +17,21 @@ vpath % bin
 
 rc4_test: main_test.c rc4.c
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) -o $@
-	mv $@ bin/
+	./$@
+	rm ./$@
 
 rc4_example: example.c rc4.c
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) -o $@
-	mv $@ bin/
+	./$@
+	rm ./$@
 
 lib%.a: %.c
 	ar rcs $@ $^
-	mv $@ bin/
 
 lib%.so: %.c
 	$(CC) $^ $(SOFLAGS) -o $@
-	mv $@ bin/
 
 .PHONY : clean
 clean :
-	rm -rf bin/*
 	rm -rf *.dSYM
 

@@ -3,30 +3,27 @@
 
 #include <stdint.h>
 
-typedef struct RC4Chiper RC4Chiper_t;
-typedef void (*RC4CryptFunc)(RC4Chiper_t *, uint8_t *, uint8_t *, int);
-
-struct RC4Chiper {
-    RC4CryptFunc crypt;
-    uint8_t s[256];
-    int i;
-    int j;
-};
+typedef struct rc4_state rc4_state_t;
 
 /**
- * init a rc4 chiper
+ * init a rc4 state
  */
-void RC4Chiper_init(RC4Chiper_t *chiper, uint8_t *key, int keysize);
+void rc4_init(rc4_state_t *state, uint8_t *key, int keysize);
 
 /**
- * create and init a rc4 chiper
- * RC4Chiper_t memory will create with molloc, use RC4Chiper_init if you have custom molloc/free
+ * create and init a rc4 state
+ * rc4_state_t memory will create with molloc, use rc4_state_init if you have custom molloc/free
  */
-RC4Chiper_t *RC4Chiper_create(uint8_t *key, int keysize);
+rc4_state_t *rc4_create(uint8_t *key, int keysize);
 
 /**
- * destroy(free) a rc4 chiper
+ * encrypt/decrypt data
  */
-void RC4Chiper_destroy(RC4Chiper_t *chiper);
+void rc4_crypt(rc4_state_t *state, uint8_t *in, uint8_t *out, int buflen);
+
+/**
+ * destroy(free) a rc4 state
+ */
+void rc4_destroy(rc4_state_t *state);
 
 #endif

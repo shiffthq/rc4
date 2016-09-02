@@ -8,9 +8,9 @@ int main() {
     uint8_t encrypt[10];
     uint8_t decrypt[10];
 
-    RC4Chiper_t *chiper = RC4Chiper_create(key, 5);
+    rc4_state_t *state = rc4_create(key, 5);
 
-    printf("RC4Chiper Example\n\n");
+    printf("rc4_state Example\n\n");
 
     printf("orignal data: ");
     for (i = 0; i < 10; i++) {
@@ -18,8 +18,8 @@ int main() {
     }
     printf("\n");
 
-    chiper->crypt(chiper, input, encrypt, 10);
-    RC4Chiper_destroy(chiper);
+    rc4_crypt(state, input, encrypt, 10);
+    rc4_destroy(state);
 
     printf("encrypt data: ");
     for (i = 0; i < 10; i++) {
@@ -27,9 +27,9 @@ int main() {
     }
     printf("\n");
 
-    chiper = RC4Chiper_create(key, 5);
-    chiper->crypt(chiper, encrypt, decrypt, 10);
-    RC4Chiper_destroy(chiper);
+    state = rc4_create(key, 5);
+    rc4_crypt(state, encrypt, decrypt, 10);
+    rc4_destroy(state);
 
     printf("decrypt data: ");
     for (i = 0; i < 10; i++) {
