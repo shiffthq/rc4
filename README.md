@@ -4,13 +4,11 @@ Stream Cipher RC4 in C
 ## Example
 ```
 make rc4_example
-./bin/rc4_example
 ```
 
 ## Test
 ```
 make rc4_test
-./bin/rc4_test
 ```
 
 ## Refer
