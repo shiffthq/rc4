@@ -10,7 +10,7 @@ int main() {
 
     rc4_state_t *state = rc4_create(key, 5);
 
-    printf("rc4_state Example\n\n");
+    printf("rc4_state example\n\n");
 
     printf("orignal data: ");
     for (i = 0; i < 10; i++) {

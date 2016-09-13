@@ -1,4 +1,7 @@
 # librc4
+
+[![Build Status](https://travis-ci.org/shiffthq/rc4.svg)](https://travis-ci.org/shiffthq/chacha20)
+
 Stream Cipher RC4 in C
 
 ## Example
