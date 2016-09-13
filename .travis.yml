@@ -1,0 +1,13 @@
+language: c
+
+sudo: false
+
+compiler:
+  - clang
+  - gcc
+
+script:
+  - make rc4_test
+  - make rc4_example
+  - make librc4.so
+  - make librc4.a
